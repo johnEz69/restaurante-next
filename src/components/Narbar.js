@@ -36,16 +36,26 @@ const Navbar = () => {
 
        
         nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          padding: 10px 0;
+          z-index: 1000;
           background-color: black;
           padding:1rem;
+          
         }
         ul {
-          list-style: none;
-          display: flex;
-          justify-content: flex-end;
-          margin: 0;
-          padding: 0;
-        }
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  margin-right: 100px; /* Ajusta este valor para mover la lista hacia la izquierda */
+}
+
         li {
           margin: 0 1rem; /* Añade espacio entre los elementos de la lista */
         }

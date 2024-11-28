@@ -13,8 +13,8 @@ export default function Home() {
 
 
       <main>
-        <section><HomePortada/></section>
-        <section><HomePortada/></section>
+        <section><HomePortada /></section>
+        
       
      
 
