@@ -12,6 +12,9 @@ const HomePortada = () => {
           width={1920}
           height={1080}
         />
+        
+
+
       </section>
       <style jsx>{`
         section {

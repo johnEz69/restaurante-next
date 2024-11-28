@@ -1,6 +1,7 @@
 // components/Navbar.js
 import React from "react";
 import Logo from "./logo";
+import Link from "next/link";
 
 
 const Navbar = () => {
@@ -19,13 +20,13 @@ const Navbar = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/Servicios">Servicio</a>
+            <a href="/reservas">Reservas</a>
           </li>
           <li>
-            <a href="/Menu">Menu</a>
+            <a href="/menu">Menu</a>
           </li>
           <li>
-            <a href="/contacto">Contacto</a>
+            <a href="/contacto">Contactos</a>
           </li>
         </ul>
       </nav>
