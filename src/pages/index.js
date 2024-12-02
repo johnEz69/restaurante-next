@@ -3,6 +3,7 @@ import Navbar from "@/components/Narbar";
 
 
 
+
 export default function Home() {
   return (
     <>
@@ -14,11 +15,11 @@ export default function Home() {
 
       <main>
         <section><HomePortada /></section>
-        
+         
       
      
 
-
+       
 
 
 
