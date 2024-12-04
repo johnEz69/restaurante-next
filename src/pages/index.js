@@ -12,11 +12,12 @@ export default function Home() {
         <section>
           <HomePortada />
         </section>
+        <section>
+          <HomePortada />
+        </section>
       </main>
 
-      <footer>
-        
-      </footer>
+      <footer></footer>
     </>
   );
 }
