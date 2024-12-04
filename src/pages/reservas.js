@@ -1,5 +1,5 @@
 import HomePortada from "@/components/homePortada";
-import Navbar from "@/components/Narbar";
+import Navbar from "@/components/Navbar";
 
 
 

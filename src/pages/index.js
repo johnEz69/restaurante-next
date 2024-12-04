@@ -1,37 +1,22 @@
 import HomePortada from "@/components/homePortada";
-import Navbar from "@/components/Narbar";
-
-
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <>
-
       <header>
-      <Navbar />
+        <Navbar />
       </header>
 
-
       <main>
-        <section><HomePortada /></section>
-        
-      
-     
-
-
-
-
-
+        <section>
+          <HomePortada />
+        </section>
       </main>
 
-     <footer>
-      
-      
-      
-      
-      </footer> 
-
-
+      <footer>
+        
+      </footer>
     </>
   );
 }
