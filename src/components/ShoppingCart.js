@@ -15,11 +15,11 @@ const ShoppingCart = () => {
   const {products, cart}=state;
   
   
-  const addToCart=(id)=>console.log(id)
+  const addToCart=(id)=>dispatch ({type: "ADD_TO_CART", payload:id})
 
-  const delateFromCart=()=>{}
+  const delateFromCart=(id)=>dispatch ({type: "REMOVE_ONE_ITEM", payload:id})
    
-  const clearCart=()=>{}
+  const clearCart=()=>dispatch({type:"CLEAR_CART"})
 
 
 
@@ -53,7 +53,7 @@ const ShoppingCart = () => {
 
       
       
-        cart.map(item => <CartItem key={item.id} item={item} />)
+        cart.map(item => <CartItem key={item.id} item={item} delateFromCart={delateFromCart} />)
       
      }
     </div>

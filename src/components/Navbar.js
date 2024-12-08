@@ -45,7 +45,7 @@ const Navbar = () => {
           justify-content: space-between;
           width: 100%;
           height: 8vh;
-          backgrond: black;
+          background: black;
           padding: 0.5rem 1.5rem;
           }
           // Responsive
@@ -59,7 +59,7 @@ const Navbar = () => {
           align-items: center;
         }
         
-        .conteiner-ul ul{
+        .conteiner-ul ul {
           display: flex;
           column-gap: 5vh;
           list-style-type: none;
@@ -70,6 +70,23 @@ const Navbar = () => {
             column-gap: 1vh;
             font-size: 0.8rem;
           }
+
+         /* estilos de la lista del menu con hover */
+           .conteiner-ul ul li a {
+         text-decoration: none; /* Sin subrayado */
+         color: white; /* Color predeterminado */
+         transition: color 0.3s ease; /* Transición suave */
+         }
+
+         .conteiner-ul ul li a:hover {
+         color: #ff6347; /* Cambia el color al pasar el cursor */
+          }
+
+
+
+
+
+
 
       `}</style>
     </>

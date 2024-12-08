@@ -1,6 +1,6 @@
 import React from 'react'
 
-const cartItem= ({item}) => {
+const cartItem= ({item, deleteFromCart}) => {
 
   const {name, price, id}=item;
 
@@ -9,7 +9,7 @@ const cartItem= ({item}) => {
     <div className='cart-item'>
         <h4>{name}</h4>
         <h5>$ {price}</h5>
-        <button> Eliminar uno</button>
+        <button onClick={()=> deleteFromCart(id)}> Eliminar uno</button>
         <button>Eliminar todos</button>
     </div>
   )
