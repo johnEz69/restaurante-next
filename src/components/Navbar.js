@@ -49,7 +49,7 @@ const Navbar = () => {
           padding: 0.5rem 1.5rem;
           }
           // Responsive
-         .nav-sm {
+         .nav-sm, .nav-md {
           height: 5vh;
           padding: 0.5rem 1rem;
         }

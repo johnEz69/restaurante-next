@@ -20,8 +20,8 @@ const HomePortada = () => {
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
-             width: 100vw; /* Asegura el ancho completo del viewport */
-            height: 100vh; /* Ocupa todo el alto del viewport */
+            width: 100vw; /* Asegura el ancho completo del viewport */
+            height: 92vh; /* Ocupa todo el alto del viewport */
         }
 
       `}</style>

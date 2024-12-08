@@ -34,19 +34,19 @@ const Presentacion = () => {
         .container {
           display: flex;
           flex-direction: column;
-          padding-top: 6vh;
           align-items: center;
+          padding: 10vh 0;
+          justify-content: space-between;
+          height:92vh;
         }
           .sm {
             font-size: 0.8rem;
-            
           }
 
         .logo-container {
           display: flex;
-          width: 95%;
+          width: 80%;
           justify-content: end;
-          padding-bottom: 6vh;
         }
 
         .welcome-text {
@@ -54,7 +54,7 @@ const Presentacion = () => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 90%;
+          width: 75%;
         }
 
         h2, p {
