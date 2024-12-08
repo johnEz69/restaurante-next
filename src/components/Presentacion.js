@@ -1,15 +1,18 @@
+import { useBreakpoint, useResponsiveScale } from "@/hooks/useResponsive.js";
 import React from "react";
 import Logo from "./logo.js";
 
 const Presentacion = () => {
+  let dinamicClass = useBreakpoint();
+
   return (
     <>
-      <div className="container">
-        <div className="logo-container">
+      <div className={`container ${dinamicClass}`}>
+        <div className={"logo-container"}>
           <Logo />
         </div>
 
-        <div className="welcome-text">
+        <div className={"welcome-text"}>
           <h2>Bienvenidos a Numen</h2>
           <p>
             En Numen, te ofrecemos más que café: una experiencia única con
@@ -21,38 +24,44 @@ const Presentacion = () => {
           </p>
         </div>
       </div>
-      <style jsx>
-        {`
-        // Falta crear clases del responsive con ResponsiveContextProvider
-          @media (max-width: 600px) {
-            .logo img {
-              width: 50px; /* Tamaño para móviles */
-            }
-            .welcome-text {
-              font-size: 10px;
-              width: 400px;
-            }
+      <style jsx>{`
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          padding-top: 6vh;
+          align-items: center;
+        }
+          .sm {
+            font-size: 0.8rem;
+            
           }
 
-          @media (min-width: 601px) and (max-width: 1200px) {
-            .logo img {
-              width: 100px; /* Tamaño para tabletas */
-            }
-            .welcome-text {
-              font-size: 12px;
-            }
-          }
+        .logo-container {
+          display: flex;
+          width: 95%;
+          justify-content: end;
+          padding-bottom: 6vh;
+        }
 
-          @media (min-width: 1201px) {
-            .logo img {
-              width: 150px; /* Tamaño para escritorio */
-            }
-            .welcome-text {
-              font-size: 16px;
-            }
-          }
-        `}
-      </style>
+        .welcome-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 90%;
+        }
+
+        h2, p {
+          padding-top: 1vh;
+          text-align: center;
+        }
+      `}</style>
     </>
   );
 };

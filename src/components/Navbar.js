@@ -1,69 +1,76 @@
 // components/Navbar.js
+import { useBreakpoint } from "@/hooks/useResponsive.js";
 import React from "react";
 import Logo from "./logo.js";
-import Link from "next/link";
 
 const Navbar = () => {
+  let dinamicClass = useBreakpoint();
   return (
     <>
-      <nav>
-      {/* Puede resivir parametro para estableser el width. Siempre se espera un sitring como "100%" o "50%" */}
-      <div className="conteiner-logo">
-        <Logo keepSize="15%" /> 
-      </div>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/reservas">Reservas</a>
-          </li>
-          <li>
-            <a href="/menu">Menu</a>
-          </li>
-          <li>
-            <a href="/contacto">Contactos</a>
-          </li>
-        </ul>
+      <nav className={`nav-${dinamicClass}`}>
+        {/* Puede resivir parametro para estableser el width. Siempre se espera un sitring como "100%" o "50%" */}
+        <div className="conteiner-logo">
+          <a href="/">
+            <Logo keepSize="100%" />
+          </a>
+        </div>
+        <div className={`conteiner-ul ${dinamicClass}`}>
+          <ul>
+            <li>
+              <a href="/contacto">Contacto</a>
+            </li>
+            <li>
+              <a href="/reservas">Reservas</a>
+            </li>
+            <li>
+              <a href="/menu">Menu</a>
+            </li>
+            <li>
+              <a href="/">Carrito</a>
+            </li>
+          </ul>
+        </div>
       </nav>
 
       <style jsx>{`
-
-      .conteiner-logo{
-      position: fixed;
-      }
-        
-        nav {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          background-color: #333;
-          padding: 10px 0;
-          z-index: 1000;
-          background-color: black;
-          padding: 1rem;
-        }
-        ul {
-          list-style: none;
-          display: flex;
-          justify-content: flex-end;
+        *{
+          box-sizing: border-box;
           margin: 0;
           padding: 0;
-          margin-right: 100px; /* Ajusta este valor para mover la lista hacia la izquierda */
         }
 
-        li {
-          margin: 0 1rem; /* Añade espacio entre los elementos de la lista */
+        nav {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+          height: 8vh;
+          backgrond: black;
+          padding: 0.5rem 1.5rem;
+          }
+          // Responsive
+         .nav-sm {
+          height: 5vh;
+          padding: 0.5rem 1rem;
         }
-        a {
-          color: white;
-          text-decoration: none;
-          font-size: 1.2rem;
+
+        .conteiner-ul{
+          display:flex;
+          align-items: center;
         }
-        a:hover {
-          color: red;
-        }
+        
+        .conteiner-ul ul{
+          display: flex;
+          column-gap: 5vh;
+          list-style-type: none;
+          font-size: 1rem;// Cambia el tamaño de las letras de las etiquetas <a>
+          }
+          // Responsive 
+          .sm ul{
+            column-gap: 1vh;
+            font-size: 0.8rem;
+          }
+
       `}</style>
     </>
   );

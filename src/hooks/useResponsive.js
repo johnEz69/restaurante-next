@@ -32,11 +32,9 @@ export const useWindowSize = () => {
 export const useBreakpoint = () => {
   const { width } = useWindowSize();
 
-  if (width < 576) return 'xs';
-  if (width < 768) return 'sm';
-  if (width < 992) return 'md';
-  if (width < 1200) return 'lg';
-  return 'xl';
+  if (width < 550) return 'sm';
+  if (width < 1080) return 'md';
+  if (width >= 1080) return 'lg';
 };
 
 // Hook para controlar visibilidad de elementos
@@ -44,22 +42,20 @@ export const useResponsiveVisibility = () => {
   const breakpoint = useBreakpoint();
 
   return {
-    showMobileMenu: ['xs', 'sm'].includes(breakpoint),
-    showDesktopMenu: ['md', 'lg', 'xl'].includes(breakpoint)
+    showMobileMenu: ['sm'].includes(breakpoint),
+    showDesktopMenu: ['md', 'lg'].includes(breakpoint)
   };
 };
 
-// // Hook para controlar tamaño de logo
-// export const useResponsiveLogo = (baseSize = 50) => {
-//   const breakpoint = useBreakpoint();
+// Hook para controlar tamaño de logo
+export const useResponsiveScale = (baseSize = 50) => {
+  const breakpoint = useBreakpoint();
 
-//   const logoSizes = {
-//     'xs': baseSize * 0.6,
-//     'sm': baseSize * 0.8,
-//     'md': baseSize,
-//     'lg': baseSize * 1.2,
-//     'xl': baseSize * 1.5
-//   };
+  const logoSizes = {
+    'sm': baseSize * 0.4,
+    'md': baseSize * 0.7,
+    'lg': baseSize
+  };
 
-//   return logoSizes[breakpoint];
-// };
+  return logoSizes[breakpoint];
+};

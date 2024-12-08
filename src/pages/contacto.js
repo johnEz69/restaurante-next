@@ -10,7 +10,6 @@ export default function Home() {
       <header>
       <Navbar />
       </header>
-      <h1> contacto</h1>
 
       <main>
         <section><HomePortada/></section>

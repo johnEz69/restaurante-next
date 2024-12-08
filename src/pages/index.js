@@ -10,10 +10,9 @@ export default function Home() {
       </header>
 
       <main>
-        
         <section>
           <HomePortada />
-          <ShoppingCart/>
+          <ShoppingCart />
         </section>
       </main>
 

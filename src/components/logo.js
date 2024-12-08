@@ -1,17 +1,18 @@
-import { useContext } from "react";
-import { responsiveContext }  from "@/context/responsiveContextProvider";
+import { useResponsiveScale } from "@/hooks/useResponsive";
 
-const Logo = ({ keepSize = "100%" }) => {
+const Logo = ({ keepSize = null }) => {
 
-  let widthWindows = useContext(responsiveContext)
+  // Si keepsize no se asigna 
+  let dSize = keepSize ? keepSize : useResponsiveScale(250) 
 
   return (
-    <img
-      src="/images/RESTOAcademy.png"
-      alt={"Logotipo"}
-      style={{ width: keepSize, height: "auto" }}
-      className={widthWindows}
-    />
+    <>
+      <img
+        src="/images/RESTOAcademy.png"
+        alt={"Logotipo"}
+        style={{ height: dSize }}
+      />
+    </>
   );
 };
 
