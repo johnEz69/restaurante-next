@@ -49,9 +49,10 @@ const Presentacion = () => {
           }
 
         .logo-container {
+           
           display: flex;
           width: 80%;
-          justify-content: end;
+          justify-content: center;
         }
 
         .welcome-text {
@@ -62,10 +63,26 @@ const Presentacion = () => {
           width: 75%;
         }
 
-        h2, p {
-          padding-top: 1vh;
-          text-align: center;
-        }
+ 
+
+h2, p {
+  color: white;
+  opacity: 0; /* Inicia invisible */
+  transform: scale(0.8); /* Empieza más pequeño */
+  animation: zoomIn 3.5s ease-out forwards; /* Animación */
+  text-align: center; /* Centrar texto */
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
       `}</style>
     </>
   );
