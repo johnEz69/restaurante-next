@@ -1,4 +1,5 @@
-import FondoMenu from "@/components/FondoMenu";
+import FondoCarrito from "@/components/fondoCarrito";
+
 import Navbar from "@/components/Navbar";
 
 
@@ -13,7 +14,7 @@ export default function Home() {
      
 
       <main>
-        <section><FondoMenu/></section>
+        <section><FondoCarrito/></section>
       
          
 

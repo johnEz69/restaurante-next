@@ -1,6 +1,7 @@
 import { useBreakpoint, useResponsiveScale } from "@/hooks/useResponsive.js";
 import React from "react";
 import Logo from "./logo.js";
+import CarouselProduct from "./CarouselProduct.js";
 
 const Presentacion = () => {
   let dinamicClass = useBreakpoint();
@@ -10,6 +11,7 @@ const Presentacion = () => {
       <div className={`container ${dinamicClass}`}>
         <div className={"logo-container"}>
           <Logo />
+          
         </div>
 
         <div className={"welcome-text"}>
@@ -22,7 +24,10 @@ const Presentacion = () => {
             bocado es una aventura para tu paladar. Ven a descubrir un rincón
             donde la creatividad y el buen gusto se encuentran. ¡Te esperamos!
           </p>
+          
         </div>
+        <CarouselProduct />
+        
       </div>
       <style jsx>{`
         * {

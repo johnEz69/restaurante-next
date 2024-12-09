@@ -27,33 +27,23 @@ const ShoppingCart = () => {
   
   
   return (
-    
-
-
-
-
 
     <>
    <h2>Carrito de compras</h2>
    <h3>Productos</h3>
    <div className='box grid-responsive'>
-    { products.map(product => <Product key ={product.id} product={product} addToCart={addToCart}/>)
+    { products.map((product) =>(
+     <Product key ={product.id} product={product} addToCart={addToCart}/>
 
-
-
-    }
+    ))}
 
 
    </div>
    <h3>Carrito</h3>
     <div className='box'>
-     {
-      
-      
-
-      
-      
-        cart.map(item => <CartItem key={item.id} item={item} delateFromCart={delateFromCart} />)
+     { cart.map((item, i)=>(
+      <CartItem key={i} item={item} deleteFromCart={delateFromCart}/>
+     ))
       
      }
     </div>

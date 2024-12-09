@@ -16,17 +16,18 @@ const Navbar = () => {
         </div>
         <div className={`conteiner-ul ${dinamicClass}`}>
           <ul>
+            
             <li>
-              <a href="/contacto">Contacto</a>
-            </li>
-            <li>
-              <a href="/reservas">Reservas</a>
+              <a href="/home">Home</a>
             </li>
             <li>
               <a href="/menu">Menu</a>
             </li>
             <li>
-              <a href="/">Carrito</a>
+              <a href="/contacto">Contacto</a>
+            </li>
+            <li>
+              <a href="/carrito">Carrito</a>
             </li>
           </ul>
         </div>

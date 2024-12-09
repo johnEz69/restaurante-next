@@ -1,6 +1,6 @@
-import HomePortada from "@/components/homePortada";
-import Navbar from "@/components/Navbar";
 
+import Navbar from "@/components/Navbar";
+import FondoContacos from "@/components/FondoContactos";
 
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section><HomePortada/></section>
+        <section><FondoContacos/></section>
       
      
 
