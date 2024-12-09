@@ -39,7 +39,7 @@ const CarouselProduct = () => {
       <div>
         <Carousel
           swipeable={true}
-          draggable={false}
+          draggable={true}
           showDots={false}
           responsive={responsive}
           ssr={true}
@@ -50,7 +50,7 @@ const CarouselProduct = () => {
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
+          removeArrowOnDeviceType={[/*"tablet",*/ "mobile"]}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           onMouseEnter={handleMouseEnter}
@@ -75,41 +75,53 @@ const CarouselProduct = () => {
         </Carousel>
       </div>
       <style jsx>{`
+      
+        // targeta
         .targeta {
           position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
           background: none;
-          margin: 20px;
+          margin: 5vh 10px;
           overflow: hidden;
           height: 250px; /* Altura fija para todas las tarjetas */
           transition: 0.5s;
         }
-
         .targeta:hover {
-          // border: 3px solid red;
           border-radius: 1rem;
-          box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.4)
+          transform: scale(1.05);
+          box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.2);
         }
-
+          
+        // Boton
         .targeta button {
+          // Posicion
           position: absolute;
           bottom: 5%;
-          right: -20%;
-          // transform: translate(-50%, -50%);
+          right: 10%;
+          opacity: 0;
+          transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+
+          // Estilo
+          padding: 0.5vh 2vh;
+          border: none;
+          background: red;
+          border-radius: 1rem;
+        }
+        .targeta button:active{
+          background: rgb(136, 8, 8);
+          border: red;
+        }
+        .targeta:hover button {
           opacity: 1;
-          transition: 0.3s ease;
         }
 
+        // imagen
         .targeta img {
           width: 100%; /* Ajusta el ancho al contenedor */
           height: 100%; /* Ajusta la altura al contenedor */
           object-fit: cover; /* Recorta y ajusta la imagen sin deformarla */
-        }
-        .targeta:hover button {
-          opacity: 1;
-          transform: translate(-150%, 0%)
         }
       `}</style>
     </>

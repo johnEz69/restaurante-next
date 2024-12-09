@@ -12,9 +12,7 @@ export default function Home() {
 
       <main>
         <section>
-          <HomePortada />
-          
-          
+          <HomePortada />          
         </section>
       </main>
 
