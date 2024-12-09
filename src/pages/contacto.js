@@ -1,6 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import FondoContacos from "@/components/FondoContactos";
+import Mapa from "@/components/Mapa";
 
 
 export default function Home() {
@@ -12,9 +13,14 @@ export default function Home() {
       </header>
 
       <main>
+
+
+
+
+        
         <section><FondoContacos/></section>
       
-     
+        
 
 
 
@@ -23,7 +29,9 @@ export default function Home() {
       </main>
 
      <footer>
+
       
+     <section><Mapa/></section>
       
       
       
