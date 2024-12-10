@@ -10,6 +10,9 @@ const BuyButton = () => {
         background: red;
         margin: 1vh;
       }
+
+
+      
     `}</style>
     </>
   );

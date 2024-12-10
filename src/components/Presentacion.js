@@ -68,6 +68,11 @@ const Presentacion = () => {
           padding: 1rem 2rem;
         }
 
+        button:hover {
+        background:blue;
+        
+        }
+
         h2,
         p {
           color: white;
