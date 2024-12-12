@@ -17,11 +17,11 @@ const CarouselProduct = () => {
       items: 4,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 550 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 550, min: 0 },
       items: 1,
     },
   };
@@ -36,7 +36,7 @@ const CarouselProduct = () => {
 
   return (
     <>
-      <div>
+      <div className="container">
         <Carousel
           swipeable={true}
           draggable={true}
@@ -58,7 +58,7 @@ const CarouselProduct = () => {
         >
           <div className="targeta">
             <img src="/images/ImagenCarrusel1.jpg" alt="Imagen 1" />
-            <button>Comprar</button>
+            <button >Comprar</button>
           </div>
           <div className="targeta">
             <img src="/images/ImagenCarrusel2.jpg" alt="Imagen 2" />
@@ -76,6 +76,10 @@ const CarouselProduct = () => {
       </div>
       <style jsx>{`
       
+        .container {
+          padding: 0 5%;
+        }
+
         // targeta
         .targeta {
           position: relative;
@@ -88,10 +92,11 @@ const CarouselProduct = () => {
           height: 250px; /* Altura fija para todas las tarjetas */
           transition: 0.5s;
         }
+          
         .targeta:hover {
           border-radius: 1rem;
-          transform: scale(1.05);
-          box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.2);
+          transform: scale(1.04);
+          box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.3);
         }
           
         // Boton

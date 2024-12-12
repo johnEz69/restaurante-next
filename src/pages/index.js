@@ -1,4 +1,3 @@
-import CarouselProduct from "@/components/CarouselProduct";
 import HomePortada from "@/components/homePortada";
 import Navbar from "@/components/Navbar";
 import ShoppingCart from "@/components/ShoppingCart";
@@ -12,14 +11,9 @@ export default function Home() {
 
       <main>
         <section>
-          <HomePortada />          
+          <HomePortada />      
+          <ShoppingCart />    
         </section>
-
-        <di>
-        <ShoppingCart/>
-
-
-        </di>
       </main>
 
       <footer></footer>
