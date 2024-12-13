@@ -5,8 +5,7 @@ import { useCart } from "@/cartContext/CartContext";
 import React from "react";
 
 const CarouselProduct = () => {
-
-  const { products, addToCart, error } = useCart();
+  const { products, addToCart} = useCart();
   const [isHovered, setIsHovered] = useState(false);
 
   const responsive = {
@@ -58,46 +57,22 @@ const CarouselProduct = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-
-          {/* <div className="targeta">
-            <img src="/images/ImagenCarrusel1.jpg" alt="Imagen 1" />
-            <button >Comprar</button>
-          </div>
-          <div className="targeta">
-            <img src="/images/ImagenCarrusel2.jpg" alt="Imagen 2" />
-            <button>Comprar</button>
-          </div>
-          <div className="targeta">
-            <img src="/images/ImagenCarrusel3.jpg" alt="Imagen 3" />
-            <button>Comprar</button>
-          </div>
-          <div className="targeta">
-            <img src="/images/ImagenCarrusel4.jpg" alt="Imagen 4" />
-            <button>Comprar</button>
-          </div> */}
-
-
           {products.map((product) => (
-          <div key={product.id} className="targeta">
-            <img 
-              src={'/images/placeholder.jpg'} //src={`/images/${product.image}` || '/images/placeholder.jpg'}
-              alt={product.name} 
-            />
-            <div className="product-info p-2">
-              <h3 className="text-lg ">{product.name}</h3>
-              <p className="text-md">${product.price}</p>
+            <div key={product.id} className="targeta">
+              <img
+                src={"/images/placeholder.jpg"} //src={`/images/${product.image}` || '/images/placeholder.jpg'}
+                alt={product.name}
+              />
+              <div className="product-info p-2">
+                <h3 className="text-lg ">{product.name}</h3>
+                <p className="text-md">${product.price}</p>
+              </div>
+              <button onClick={() => addToCart(product)}>Comprar</button>
             </div>
-            <button 
-              onClick={() => addToCart(product)}
-            >
-              Comprar
-            </button>
-          </div>
-        ))}
+          ))}
         </Carousel>
       </div>
       <style jsx>{`
-      
         .container {
           padding: 0 5%;
         }
@@ -114,13 +89,13 @@ const CarouselProduct = () => {
           height: 250px; /* Altura fija para todas las tarjetas */
           transition: 0.5s;
         }
-          
+
         .targeta:hover {
           border-radius: 1rem;
           transform: scale(1.04);
           box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.3);
         }
-          
+
         // Boton
         .targeta button {
           // Posicion
@@ -136,7 +111,7 @@ const CarouselProduct = () => {
           background: red;
           border-radius: 1rem;
         }
-        .targeta button:active{
+        .targeta button:active {
           background: rgb(136, 8, 8);
           border: red;
         }

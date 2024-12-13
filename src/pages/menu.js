@@ -1,9 +1,10 @@
 import FondoMenu from "@/components/FondoMenu";
 import Navbar from "@/components/Navbar";
+import Servicios from "@/components/Servicios"; 
+import Footer from "@/components/footer";
 
 
-
-export default function Home() {
+export default function menu() {
   return (
     <>
 
@@ -13,8 +14,11 @@ export default function Home() {
      
 
       <main>
+        
         <section><FondoMenu/></section>
-      
+        <div>
+          <Servicios/>
+        </div>
          
 
 
@@ -25,7 +29,7 @@ export default function Home() {
 
      <footer>
       
-      
+        <div><Footer/></div>
       
       
       </footer> 

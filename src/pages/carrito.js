@@ -2,36 +2,20 @@ import FondoCarrito from "@/components/fondoCarrito";
 
 import Navbar from "@/components/Navbar";
 
-
-
 export default function Home() {
   return (
     <>
-
       <header>
-      <Navbar />
+        <Navbar />
       </header>
-     
 
       <main>
-        <section><FondoCarrito/></section>
-      
-         
-
-
-
-
-
+        <section>
+          <FondoCarrito />
+        </section>
       </main>
 
-     <footer>
-      
-      
-      
-      
-      </footer> 
-
-
+      <footer></footer>
     </>
   );
 }

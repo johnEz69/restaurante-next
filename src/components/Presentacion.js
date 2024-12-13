@@ -24,7 +24,7 @@ const Presentacion = () => {
           </p>
         </div>
 
-        <button><a href="/menu" >Ver Menu</a></button>
+        <button><a href="/menu">Ver Menu</a></button>
 
       </div>
       <style jsx>{`

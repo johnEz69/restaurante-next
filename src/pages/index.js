@@ -1,7 +1,6 @@
 import HomePortada from "@/components/homePortada";
 import Navbar from "@/components/Navbar";
-import ShoppingCart from "@/components/ShoppingCart";
-import { CartProvider } from "@/cartContext/CartContext";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -12,11 +11,15 @@ export default function Home() {
 
       <main>
         <section>
-          <HomePortada />   
+          <HomePortada />
         </section>
       </main>
 
-      <footer></footer>
+      <footer>
+        <section>
+          <Footer />
+        </section>
+      </footer>
     </>
   );
 }

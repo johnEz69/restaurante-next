@@ -108,6 +108,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  
+
   // Calcular total del carrito
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);

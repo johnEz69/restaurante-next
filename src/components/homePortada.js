@@ -16,7 +16,8 @@ const HomePortada = () => {
 
       <div className="seccion-carrusel">
         <h2>
-          <CartProvider>
+          {/* Proovedor de las primitivas de manejo del carrito */}
+          <CartProvider> 
             <CarouselProduct />
           </CartProvider>
         </h2>
