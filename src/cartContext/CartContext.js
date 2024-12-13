@@ -1,7 +1,7 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import React, { createContext, useState, useContext, useEffect } from "react";
+import axios from "axios";
 
-const JSON_SERVER_URL = 'http://localhost:5000';
+const JSON_SERVER_URL = "http://localhost:5000";
 
 // Crear el contexto del carrito
 const CartContext = createContext();
@@ -10,7 +10,7 @@ const CartContext = createContext();
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
+    throw new Error("useCart must be used within a CartProvider");
   }
   return context;
 };
@@ -27,14 +27,14 @@ export const CartProvider = ({ children }) => {
       try {
         const [productsResponse, cartResponse] = await Promise.all([
           axios.get(`${JSON_SERVER_URL}/product`),
-          axios.get(`${JSON_SERVER_URL}/cart`)
+          axios.get(`${JSON_SERVER_URL}/cart`),
         ]);
 
         setProducts(productsResponse.data);
         setCart(cartResponse.data);
       } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data. Please try again later.');
+        console.error("Error fetching data:", err);
+        setError("Failed to load data. Please try again later.");
       }
     };
 
@@ -44,75 +44,92 @@ export const CartProvider = ({ children }) => {
   // Agregar producto al carrito
   const addToCart = async (product) => {
     try {
-      const foundProduct = cart.find(item => item.id === product.id);
-  
+      const foundProduct = cart.find((item) => item.id === product.id);
+
       if (foundProduct) {
-        // Corrección: Usar POST o PUT correctamente
-        await axios.put(`${JSON_SERVER_URL}/cart/${foundProduct.id}`, 
-          {
-            ...foundProduct,
-            quantity: foundProduct.quantity + 1
-          }
-        );
-        
-        // Actualizar estado local
-        setCart(prevCart => 
-          prevCart.map(item => 
-            item.id === product.id 
-              ? {...item, quantity: item.quantity + 1}
-              : item
-          )
-        );
+        // Actualizar en la base de datos
+        await axios.put(`${JSON_SERVER_URL}/cart/${foundProduct.id}`, {
+          ...foundProduct,
+          quantity: foundProduct.quantity + 1,
+        });
       } else {
-        // Corrección: Usar POST para añadir nuevo producto
-        const newCartItem = { ...product, quantity: 1 };
-        const response = await axios.post(`${JSON_SERVER_URL}/cart`, newCartItem);
-        
-        // Actualizar estado local
-        setCart(prevCart => [...prevCart, response.data]);
+        // Añadir nuevo producto
+        await axios.post(`${JSON_SERVER_URL}/cart`, {
+          ...product,
+          quantity: 1,
+        });
       }
+
+      // Refrescar todo el carrito desde la base de datos
+      const cartResponse = await axios.get(`${JSON_SERVER_URL}/cart`);
+      setCart(cartResponse.data);
     } catch (err) {
-      console.error('Error adding to cart:', err);
-      setError('Failed to add product to cart');
-    }
-  };
-
-
-  // Actualizar cantidad de producto en el carrito
-  const updateQuantity = async (productId, newQuantity) => {
-    try {
-      const updatedCart = cart.map(item => 
-        item.id === productId 
-          ? { ...item, quantity: newQuantity } 
-          : item
-      ).filter(item => item.quantity > 0);
-
-      await axios.put(`${JSON_SERVER_URL}/cart`, updatedCart);
-      setCart(updatedCart);
-    } catch (err) {
-      console.error('Error updating quantity:', err);
-      setError('Failed to update product quantity');
+      console.error("Error adding to cart:", err);
+      setError("Failed to add product to cart");
     }
   };
 
   // Eliminar producto del carrito
-  const removeFromCart = async (productId) => {
+  const removeItemFromCart = async (productId) => {
     try {
-      const updatedCart = cart.filter(item => item.id !== productId);
-      
-      await axios.put(`${JSON_SERVER_URL}/cart`, updatedCart);
-      setCart(updatedCart);
+      // Eliminar de la base de datos
+      await axios.delete(`${JSON_SERVER_URL}/cart/${productId}`);
+
+      // Refrescar todo el carrito desde la base de datos
+      const cartResponse = await axios.get(`${JSON_SERVER_URL}/cart`);
+      setCart(cartResponse.data);
     } catch (err) {
-      console.error('Error removing from cart:', err);
-      setError('Failed to remove product from cart');
+      console.error("Error removing from cart:", err);
+      setError("Failed to remove product from cart");
     }
   };
 
-  
+  // Reducir la cantidad de un producto en el carrito
+  const removeOneItemFromCart = async (product) => {
+    try {
+      const foundProduct = cart.find((item) => item.id === product.id);
+
+      if (foundProduct) {
+        if (foundProduct.quantity > 1) {
+          // Si hay más de un producto, reducir la cantidad
+          await axios.put(`${JSON_SERVER_URL}/cart/${foundProduct.id}`, {
+            ...foundProduct,
+            quantity: foundProduct.quantity - 1,
+          });
+        } else {
+          // Si solo hay un producto, eliminarlo completamente
+          await axios.delete(`${JSON_SERVER_URL}/cart/${foundProduct.id}`);
+        }
+
+        // Refrescar todo el carrito desde la base de datos
+        const cartResponse = await axios.get(`${JSON_SERVER_URL}/cart`);
+        setCart(cartResponse.data);
+      }
+    } catch (err) {
+      console.error("Error removing item from cart:", err);
+      setError("Failed to remove item from cart");
+    }
+  };
+
+// Vaciar completamente el carrito
+const clearCart = async () => {
+  try {
+    // Eliminar todos los productos del carrito
+    await Promise.all(
+      cart.map((item) => axios.delete(`${JSON_SERVER_URL}/cart/${item.id}`))
+    );
+
+    // Limpiar el estado del carrito
+    setCart([]);
+  } catch (err) {
+    console.error("Error clearing cart:", err);
+    setError("Failed to clear cart");
+  }
+};
 
   // Calcular total del carrito
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   // Valores y funciones a compartir
@@ -121,15 +138,12 @@ export const CartProvider = ({ children }) => {
     cart,
     error,
     addToCart,
-    updateQuantity,
-    removeFromCart,
+    removeItemFromCart,
+    removeOneItemFromCart,
     calculateTotal,
-    setError
+    clearCart,
+    setError,
   };
 
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

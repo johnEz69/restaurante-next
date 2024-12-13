@@ -5,7 +5,7 @@ import { useCart } from "@/cartContext/CartContext";
 import React from "react";
 
 const CarouselProduct = () => {
-  const { products, addToCart} = useCart();
+  const { products, addToCart } = useCart();
   const [isHovered, setIsHovered] = useState(false);
 
   const responsive = {

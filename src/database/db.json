@@ -51,5 +51,36 @@
       "price": 100000
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "2",
+      "name": "ProductoB",
+      "price": 20,
+      "quantity": 2
+    },
+    {
+      "id": "3",
+      "name": "ProductoD",
+      "price": 100,
+      "quantity": 6
+    },
+    {
+      "id": "10",
+      "name": "ProductoK",
+      "price": 100000,
+      "quantity": 1
+    },
+    {
+      "id": "8",
+      "name": "ProductoI",
+      "price": 70,
+      "quantity": 1
+    },
+    {
+      "id": "9",
+      "name": "ProductoJ",
+      "price": 90,
+      "quantity": 5
+    }
+  ]
 }
