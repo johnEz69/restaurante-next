@@ -1,6 +1,7 @@
 import HomePortada from "@/components/homePortada";
 import Navbar from "@/components/Navbar";
 import ShoppingCart from "@/components/ShoppingCart";
+import { CartProvider } from "@/cartContext/CartContext";
 
 export default function Home() {
   return (
@@ -11,8 +12,7 @@ export default function Home() {
 
       <main>
         <section>
-          <HomePortada />      
-          <ShoppingCart />    
+          <HomePortada />   
         </section>
       </main>
 

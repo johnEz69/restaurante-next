@@ -1,0 +1,86 @@
+{
+  "product": [
+    {
+      "id": "1",
+      "name": "ProductoA",
+      "price": 10
+    },
+    {
+      "id": "2",
+      "name": "ProductoB",
+      "price": 20
+    },
+    {
+      "id": "3",
+      "name": "ProductoD",
+      "price": 100
+    },
+    {
+      "id": "4",
+      "name": "ProductoE",
+      "price": 200
+    },
+    {
+      "id": "5",
+      "name": "ProductoF",
+      "price": 300
+    },
+    {
+      "id": "6",
+      "name": "ProductoG",
+      "price": 50
+    },
+    {
+      "id": "7",
+      "name": "ProductoH",
+      "price": 60
+    },
+    {
+      "id": "8",
+      "name": "ProductoI",
+      "price": 70
+    },
+    {
+      "id": "9",
+      "name": "ProductoJ",
+      "price": 90
+    },
+    {
+      "id": "10",
+      "name": "ProductoK",
+      "price": 100000
+    }
+  ],
+  "cart": [
+    {
+      "id": "10",
+      "name": "ProductoK",
+      "price": 100000,
+      "quantity": 4
+    },
+    {
+      "id": "2",
+      "name": "ProductoB",
+      "price": 20,
+      "quantity": 2
+    },
+    {
+      "id": "3",
+      "name": "ProductoD",
+      "price": 100,
+      "quantity": 1
+    },
+    {
+      "id": "8",
+      "name": "ProductoI",
+      "price": 70,
+      "quantity": 3
+    },
+    {
+      "id": "7",
+      "name": "ProductoH",
+      "price": 60,
+      "quantity": 1
+    }
+  ]
+}

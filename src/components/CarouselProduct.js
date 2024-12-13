@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
+import { useCart } from "@/cartContext/CartContext";
 import React from "react";
 
 const CarouselProduct = () => {
+
+  const { products, addToCart, error } = useCart();
   const [isHovered, setIsHovered] = useState(false);
 
   const responsive = {
@@ -50,13 +52,14 @@ const CarouselProduct = () => {
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={[/*"tablet",*/ "mobile"]}
+          removeArrowOnDeviceType={["mobile"]}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="targeta">
+
+          {/* <div className="targeta">
             <img src="/images/ImagenCarrusel1.jpg" alt="Imagen 1" />
             <button >Comprar</button>
           </div>
@@ -71,7 +74,26 @@ const CarouselProduct = () => {
           <div className="targeta">
             <img src="/images/ImagenCarrusel4.jpg" alt="Imagen 4" />
             <button>Comprar</button>
+          </div> */}
+
+
+          {products.map((product) => (
+          <div key={product.id} className="targeta">
+            <img 
+              src={'/images/placeholder.jpg'} //src={`/images/${product.image}` || '/images/placeholder.jpg'}
+              alt={product.name} 
+            />
+            <div className="product-info p-2">
+              <h3 className="text-lg ">{product.name}</h3>
+              <p className="text-md">${product.price}</p>
+            </div>
+            <button 
+              onClick={() => addToCart(product)}
+            >
+              Comprar
+            </button>
           </div>
+        ))}
         </Carousel>
       </div>
       <style jsx>{`

@@ -1,6 +1,7 @@
 import React from "react";
 import Presentacion from "./Presentacion";
 import CarouselProduct from "./CarouselProduct";
+import { CartProvider } from "@/cartContext/CartContext";
 
 const HomePortada = () => {
   return (
@@ -15,7 +16,9 @@ const HomePortada = () => {
 
       <div className="seccion-carrusel">
         <h2>
-          <CarouselProduct />
+          <CartProvider>
+            <CarouselProduct />
+          </CartProvider>
         </h2>
       </div>
 
