@@ -60,13 +60,13 @@ const CarouselProduct = () => {
           {products.map((product) => (
             <div key={product.id} className="targeta">
               <img
-                src={"/images/placeholder.jpg"} //src={`/images/${product.image}` || '/images/placeholder.jpg'}
+                src= {product.image}
                 alt={product.name}
               />
-              <div className="product-info p-2">
-                <h3 className="text-lg ">{product.name}</h3>
-                <p className="text-md">${product.price}</p>
-              </div>
+
+                <h3 className="text-name ">{product.name}</h3>
+                <p className="text-price">${product.price}</p>
+
               <button onClick={() => addToCart(product)}>Comprar</button>
             </div>
           ))}
@@ -96,6 +96,19 @@ const CarouselProduct = () => {
           box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.3);
         }
 
+        //Name
+        .text-name {
+          position: absolute;
+          top: 5%;
+          left: 5%; 
+        }
+
+        .text-price {
+          position: absolute;
+          bottom: 5%;
+          left: 5%;
+        }
+
         // Boton
         .targeta button {
           // Posicion
@@ -113,9 +126,9 @@ const CarouselProduct = () => {
         }
         .targeta button:active {
           background: rgb(136, 8, 8);
-          border: red;
+          border: rgb(136, 8, 8);
         }
-        .targeta:hover button {
+        .targeta:hover button, h3, p {
           opacity: 1;
         }
 

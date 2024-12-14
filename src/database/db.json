@@ -3,84 +3,71 @@
     {
       "id": "1",
       "name": "ProductoA",
-      "price": 10
+      "price": 10,
+      "image": "/images/ImagenCarrusel1.jpg"
     },
-    {
-      "id": "2",
-      "name": "ProductoB",
-      "price": 20
-    },
-    {
-      "id": "3",
-      "name": "ProductoD",
-      "price": 100
-    },
-    {
-      "id": "4",
-      "name": "ProductoE",
-      "price": 200
-    },
-    {
-      "id": "5",
-      "name": "ProductoF",
-      "price": 300
-    },
-    {
-      "id": "6",
-      "name": "ProductoG",
-      "price": 50
-    },
-    {
-      "id": "7",
-      "name": "ProductoH",
-      "price": 60
-    },
-    {
-      "id": "8",
-      "name": "ProductoI",
-      "price": 70
-    },
-    {
-      "id": "9",
-      "name": "ProductoJ",
-      "price": 90
-    },
-    {
-      "id": "10",
-      "name": "ProductoK",
-      "price": 100000
-    }
-  ],
-  "cart": [
     {
       "id": "2",
       "name": "ProductoB",
       "price": 20,
-      "quantity": 2
+      "image": "/images/ImagenCarrusel2.jpg"
     },
     {
       "id": "3",
       "name": "ProductoD",
       "price": 100,
-      "quantity": 6
+      "image": "/images/ImagenCarrusel3.jpg"
     },
     {
-      "id": "10",
-      "name": "ProductoK",
-      "price": 100000,
-      "quantity": 1
+      "id": "4",
+      "name": "ProductoE",
+      "price": 200,
+      "image": "/images/ImagenCarrusel4.jpg"
+    },
+    {
+      "id": "5",
+      "name": "ProductoF",
+      "price": 300,
+      "image": "/images/ImagenCarrusel1.jpg"
+    },
+    {
+      "id": "6",
+      "name": "ProductoG",
+      "price": 50,
+      "image": "/images/ImagenCarrusel1.jpg"
+    },
+    {
+      "id": "7",
+      "name": "ProductoH",
+      "price": 60,
+      "image": "/images/ImagenCarrusel1.jpg"
     },
     {
       "id": "8",
       "name": "ProductoI",
       "price": 70,
-      "quantity": 1
+      "image": "/images/ImagenCarrusel1.jpg"
     },
     {
       "id": "9",
       "name": "ProductoJ",
       "price": 90,
-      "quantity": 5
+      "image": "/images/ImagenCarrusel1.jpg"
+    },
+    {
+      "id": "10",
+      "name": "ProductoK",
+      "price": 100000,
+      "image": "/images/ImagenCarrusel1.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "name": "ProductoA",
+      "price": 10,
+      "image": "/images/ImagenCarrusel1.jpg",
+      "quantity": 4
     }
   ]
 }

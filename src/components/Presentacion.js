@@ -69,17 +69,20 @@ const Presentacion = () => {
         }
 
         button:hover {
-        background:blue;
+        background: rgb(136, 8, 8);
         
+        }
+        button:active {
+          background: rgb(200, 50,50)
         }
 
         h2,
         p {
           color: white;
-          opacity: 0; /* Inicia invisible */
-          transform: scale(0.8); /* Empieza más pequeño */
-          animation: zoomIn 3.5s ease-out forwards; /* Animación */
-          text-align: center; /* Centrar texto */
+          opacity: 0; 
+          transform: scale(0.8); 
+          animation: zoomIn 3.5s ease-out forwards;
+          text-align: center; 
         }
 
         @keyframes zoomIn {
